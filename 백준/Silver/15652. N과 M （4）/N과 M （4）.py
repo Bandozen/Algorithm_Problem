@@ -1,10 +1,13 @@
-def backtracking(N, lst):
+def backtracking(N, idx):
     if N == m:
-        print(*lst[1:])
+        print(' '.join(map(str, lst)))
         return
     
-    for i in range(lst[-1], n+1):
-        backtracking(N + 1, lst + [i])
+    for i in range(idx, n+1):
+        lst.append(i)
+        backtracking(N + 1, i)
+        lst.pop()
 
 n, m = map(int, input().split())
-backtracking(0, [1])
+lst = []
+backtracking(0, 1)
