@@ -10,33 +10,14 @@ score = {
     'F' : 0.0,
 }
 
-hakjeom = []
-jeongong = []
-jeongongscore = []
-finalscore = []
-sumV = 0
-answer = 0
-lst = [list(map(str, input().split())) for _ in range(20)]
-# pprint(lst)
+result = 0
+total = 0
 
-for i in range(len(lst)):
-    if lst[i][2] != "P":
-        hakjeom.append(lst[i][1])
-        jeongong.append(lst[i][2])
-
-for i in jeongong:
-    if i in score.keys():
-        jeongongscore.append(score[i])
-
-# pprint(len(jeongongscore))
-
-for i in range(len(hakjeom)):
-    for j in range(len(jeongongscore)):
-        if i == j:
-            finalscore.append(float(hakjeom[i]) * float(jeongongscore[j]))
-for i in range(len(hakjeom)):
-    sumV += float(hakjeom[i])
-# print(sum(finalscore))
-# print(sumV)
-answer = round(sum(finalscore) / sumV, 6)
+for _ in range(20):
+    arr = input().split()
+    if arr[2] != "P":
+        total += float(arr[1])
+        result += float(arr[1]) * score[arr[2]]
+        
+answer = round(result / total, 6)
 print(answer)
