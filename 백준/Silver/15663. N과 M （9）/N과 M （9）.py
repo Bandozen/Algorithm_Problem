@@ -2,10 +2,10 @@ n, m = map(int, input().split())
 nums = sorted(list(map(int, input().split())))
 out = []
 visited = [False] * n
-prev = 0
 
 
 def dfs(depth):
+    # prev변수를 통해 이전에 나온 값과 같은 값이 나오면 제외시켜버리기
     prev = 0
     if depth == m:
         print(' '.join(map(str, out)))
